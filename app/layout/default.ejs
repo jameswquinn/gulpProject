@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="robot" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website ∙ <%= file.frontMatter.title %></title>
+    <meta name="description" content="<%= file.frontMatter.description %>" />
+    <meta name="author" content="<%= file.frontMatter.author %>" />
+    <meta name="copyright" content="©2018 <%= file.frontMatter.author %>" />
+    <meta property="og:image" content="<%= file.frontMatter.banner %>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:title" content="<%= file.frontMatter.title %>">
+    <meta property="og:description" content="<%= file.frontMatter.description %>">
+    <meta property="og:url" content="<%= file.frontMatter.opengraphUrl %>">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:image" content="<%= file.frontMatter.banner %>"/>
+    <meta name="twitter:image:alt" content="<%= file.frontMatter.opengraphUrl %>" />
+    <meta name="twitter:title" content="<%= file.frontMatter.title %>"/>
+    <meta name="twitter:description" content="<%= file.frontMatter.description %>"/>
+    <link type="text/plain" rel="author" href="/humans.txt" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "https://examples.com",
+      "name": "<%= file.frontMatter.author %>",
+      "description": "<%= file.frontMatter.description %>"
+  }
+  </script>
+</head>
+  <body>
+<div class="container">
+    <% if (file.frontMatter.picture) { %>
+    <img src="<%= file.frontMatter.picture %>" alt="">
+  <% } %>
+
+    <%= contents %>
+
+</div>
+
+<button>Press</button>
+
+
+  </body>
+</html>
