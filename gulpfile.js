@@ -93,8 +93,28 @@ potrace.trace('./app/img/logo.png', (err, svg) => {
 });
 });
 
+gulp.task('inject-favicon', function() {
+  gulp.src('./app/layout/master.html')
+  .pipe($.inject(gulp.src(['./tmp/meta.html']), {
+    starttag: '<!-- inject:head:{{ext}} -->',
+    transform: function(filePath, file) {
+      return file.contents.toString('utf8'); // return file contents as string
+    }
+  }))
+  .pipe(gulp.dest('.'));
+});
+
+gulp.task('inject', function () {
+  var target = gulp.src('./src/index.html');
+  // It's not necessary to read the files (will speed up things), we're only after their paths:
+  var sources = gulp.src(['./src/**/*.js', './src/**/*.css'], {read: false});
+
+  return target.pipe(inject(sources))
+    .pipe(gulp.dest('./src'));
+});
+
 gulp.task('default', () => {
-    runOrder('favicon', 'safari-pinned-tab', 'pages', 'index', 'img')
+    runOrder('favicon', 'pages', 'index', 'img')
 })
 
 gulp.task('map', function () {
